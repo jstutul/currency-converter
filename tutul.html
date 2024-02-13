@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $( document ).ready(function() {
+            $.ajax({
+    type: "GET",
+    // url: 'https://api.wise.com/v3/comparisons?sourceCurrency=GBP&targetCurrency=EUR&sendAmount=200&midMarketRate=1.1758',
+    url: 'https://api.wise.com/v3/rates?source=GBP&target=EUR',
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer 06475932-cddd-4cfa-90ac-64e7e76851ee');
+    },
+    success: function (data) {
+        console.log(data);
+    }
+});
+
+
+        });
+    </script>
+</body>
+</html>
